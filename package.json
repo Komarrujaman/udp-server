@@ -4,7 +4,7 @@
   "description": "udp-server-nb",
   "main": "index.js",
   "scripts": {
-    "start" : "nodemon index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "antares",
@@ -15,7 +15,9 @@
     "dotenv": "^16.4.5",
     "fastify": "^5.0.0",
     "fs": "^0.0.1-security",
+    "mysql2": "^3.11.3",
     "nodemon": "^3.1.7",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^6.37.4"
   }
 }
