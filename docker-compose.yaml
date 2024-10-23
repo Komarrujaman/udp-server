@@ -15,7 +15,9 @@ services:
       - mysql
 
   mysql:
-    image: mysql:latest
+    image: mysql:5.7
+    volumes:
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
