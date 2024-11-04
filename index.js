@@ -7,6 +7,11 @@ const fastify = require('fastify')({
     logger:true
 })
 
+// Tambahkan CORS
+fastify.register(require('@fastify/cors'), {
+    origin: '*', // Mengizinkan semua asal (origin)
+});
+
 const UDP_HOST = process.env.UDP_HOST;
 const UDP_PORT = process.env.UDP_PORT;
 const HTTP_HOST = process.env.HTTP_HOST;

@@ -1,0 +1,11 @@
+frontend:
+    path: .
+    publish: dist
+    scripts:
+        deploy:
+            - npm install --legacy-peer-deps
+            - npm run build
+    subdomain: antares-nvr-middleware-dashboard
+name: antares-nvr-middleware-dashboard
+region: us-east-1
+yamlVersion: 2
