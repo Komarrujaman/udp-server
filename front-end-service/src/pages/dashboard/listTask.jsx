@@ -61,7 +61,7 @@ const ListTask = () => {
   
   return (
     <>
-      <Card className=" xl:col-span-2 shadow-sm bg-white bg-opacity-5">
+      <Card className=" xl:col-span-2 bg-main shadow-nuero">
           <CardHeader variant="gradient" className="mb-8 p-6 bg-orange-500 shadow-sm shadow-orange-300">
             <Typography variant="h6" color="white">
               Devices List
@@ -175,7 +175,7 @@ const ListTask = () => {
                       </td>
                       <td className= {" " + className}>
                         <div className="flex">
-                        <Link to={`./edit-task/${id}`}>
+                        <Link to={`./edit-device/${serial_number}`}>
                             <Typography
                               as="span"
                               className="text-xs font-semibold mx-1 text-orange-700 hover:ring-1 hover:ring-orange-700 rounded-sm p-1"

@@ -4,7 +4,11 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'nuero' : '17px 17px 46px #020a0d, -17px -17px 46px #082635'
+      }
+    },
     colors: {
       'main': '#051821',
       'background': '#e5e5e5',

@@ -126,7 +126,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
 
 Sidenav.defaultProps = {
   brandImg: "/img/logo-ct.png",
-  brandName: "Antares Devices Management",
+  brandName: "ANTARES DEVICE MANAGEMENT",
 };
 
 Sidenav.propTypes = {

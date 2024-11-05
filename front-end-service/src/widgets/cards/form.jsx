@@ -40,9 +40,7 @@ export default function NVRForm() {
   const [greenAlertPost, setGreenAlertPost] = React.useState(false);
   const backEndUrl = Server.baseURL;
   const backEndPort = Server.basePort;
-  const backEndPath = '/postTaskById';
-  const backEndTestPath = '/test-fetch-image';
-  const testFtpPath = '/test-upload-image';
+  const backEndPath = '/devices/create';
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -118,7 +116,7 @@ export default function NVRForm() {
                   <Input
                     placeholder="7e067024084498"
                     type="text"
-                    name="serialNumber"
+                    name="serial_number"
                     className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-gray-300"
                     labelProps={{
                       className: "before:content-none after:content-none",
