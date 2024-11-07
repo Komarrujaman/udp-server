@@ -6,7 +6,7 @@ module.exports = withMT({
   theme: {
     extend: {
       boxShadow: {
-        'nuero' : '17px 17px 46px #020a0d, -17px -17px 46px #082635'
+        'nuero' : '12px -12px 15px #020a0d, -12px 12px 15px #082635'
       }
     },
     colors: {

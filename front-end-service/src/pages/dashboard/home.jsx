@@ -41,6 +41,7 @@ import ListUser from "@/widgets/cards/listUser";
 export function Home() {
   const [data, setData] = React.useState([]);
   const [totalRequest, setTotalRequest] = useState(2680);
+  const [totalDevice, setTotalDevice] = useState(0);
   const [totalFailed, setTotalFailed] = useState(100);
   const [totalTask, setTotalTask] = useState(0);
   const [totalInActiveTask, setTotalInActiveTask] = useState(0);
@@ -53,7 +54,9 @@ export function Home() {
       setData(result);
       console.log(data);
       setLoading(false);
+      setTotalDevice(result.length);
     })
+
   }, []);
   
   return (
