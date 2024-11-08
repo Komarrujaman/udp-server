@@ -22,7 +22,7 @@ export function AddUser() {
   }, []);
 
   return (
-    <div className="justify-center mx-auto mt-4 md:mt-8 block md:flex 0 shadow-none md:shadow-sm rounded-lg">
+    <div className="justify-center mx-auto mt-4 md:mt-8 block md:flex 0 rounded-lg shadow-nuero">
     
       <UserForm />
 

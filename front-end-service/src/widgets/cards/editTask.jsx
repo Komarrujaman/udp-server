@@ -20,22 +20,11 @@ import { CreditCardIcon } from "@heroicons/react/24/solid";
 import Server from "@/data/conf";
 
 export default function EditTask() {
-  const { serial_number } = useParams(); // Extract id from the URL params
+  const { id } = useParams(); // Extract id from the URL params
+  console.log("id: ", id);
   const [type, setType] = useState("card");
   const [inputData, setInputData] = useState({
-    name: '',
-    server: '',
-    port: '',
-    username: '',
-    password: '',
-    prefix: '',
-    ftp_url: '',
-    ftp_port: '',
-    ftp_user: '',
-    ftp_pass: '',
-    ftp_dir: '',
-    send_interval: '',
-    status: '',
+    serial_number: '',
   });
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
@@ -44,21 +33,21 @@ export default function EditTask() {
   
   const backEndUrl = Server.baseURL;
   const backEndPort = Server.basePort;
-  const backEndPath = `/device/update/${serial_number}`; // Use the edit path with task ID
+  const backEndPath = `/devices/update/${id}`; // Use the edit path with task ID
 
   // Fetch existing task data when the component mounts
   useEffect(() => {
     const fetchTaskData = async () => {
       try {
-        const response = await axios.get(`http://${backEndUrl}:${backEndPort}/devices/${serial_number}`); // Make sure you have this endpoint
+        const response = await axios.get(`http://${backEndUrl}:${backEndPort}/devices/id/${id}`); // Make sure you have this endpoint
         setInputData(response.data.data);
-        
+        console.log(response.data.data);
       } catch (error) {
         console.error('Error fetching task data:', error);
       }
     };
     fetchTaskData();
-  }, [serial_number]); // Fetch when the ID changes
+  }, [id]); // Fetch when the ID changes
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -136,7 +125,7 @@ export default function EditTask() {
                     labelProps={{
                       className: "before:content-none after:content-none",
                     }}
-                    value={serial_number}
+                    value={inputData.serial_number}
                     onChange={handleChange}
                   />
                 </div>

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 export function StatisticsCard({ color, icon, title, value, footer }) {
   return (
-    <Card className="shadow-lg bg-[#e5e5e5] bg-opacity-50">
+    <Card className="shadow-nuero bg-main">
       <CardHeader
         variant="gradient"
         // color={color}
@@ -20,10 +20,10 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
         {icon}
       </CardHeader>
       <CardBody className="p-4 text-right">
-        <Typography variant="small" className="font-normal text-main">
+        <Typography variant="small" className="font-normal text-gray-300">
           {title}
         </Typography>
-        <Typography variant="h4" color="blue-gray">
+        <Typography variant="h4" className="text-gray-300">
           {value}
         </Typography>
       </CardBody>

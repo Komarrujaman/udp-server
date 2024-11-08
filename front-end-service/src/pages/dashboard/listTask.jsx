@@ -29,7 +29,7 @@ const ListTask = () => {
   const [loading, setLoading] = useState(true); // State to track loading
   const baseUrl = Server.baseURL;
   const baseport = Server.basePort;
-  const deleteTaskPath = "/deleteTaskById";
+  const deleteTaskPath = "/devices/delete";
   useEffect(() => {
     DeviceApi().then((result) => {
       setData(result);
@@ -38,7 +38,7 @@ const ListTask = () => {
   }, []);
 
   const handleDeleteTask = async (taskId, name) => {
-    const confirmLogout = window.confirm("Are you sure want to Delete this User?");
+    const confirmLogout = window.confirm("Are you sure want to Delete this Device ?");
     if (confirmLogout) {
       try {
         const response = await fetch(`http://${baseUrl}:${baseport}${deleteTaskPath}/${taskId}`, {
@@ -48,13 +48,13 @@ const ListTask = () => {
         if (response.ok) {
           // Remove the deleted task from the state
           setData(data.filter((task) => task.id !== taskId));
-          console.log(`Task ${name}  deleted successfully`);
-          toast.success(`Task ${name} deleted successfully!`);
+          console.log(`device ${name}  deleted successfully`);
+          toast.success(`device ${name} deleted successfully!`);
         } else {
-          console.error('Error deleting task:');
+          console.error('Error deleting device:');
         }
       } catch (error) {
-        console.error('Error in delete task:', error);
+        console.error('Error in delete device:', error);
       }
     }
   };
@@ -175,7 +175,7 @@ const ListTask = () => {
                       </td>
                       <td className= {" " + className}>
                         <div className="flex">
-                        <Link to={`./edit-device/${serial_number}`}>
+                        <Link to={`./edit-device/${id}`}>
                             <Typography
                               as="span"
                               className="text-xs font-semibold mx-1 text-orange-700 hover:ring-1 hover:ring-orange-700 rounded-sm p-1"

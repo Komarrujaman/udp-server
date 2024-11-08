@@ -12,6 +12,11 @@ module.exports = async function (fastify) {
         return {data: await getByName(serial_number)}
     });
 
+    fastify.get('/devices/id/:id', async (req, res) => {
+        const { id } = req.params;
+        return {data: await getOne(id)}
+    });
+
     fastify.post('/devices/create', async (req, res) => {
         const body = req.body.data;
         console.log(body);
@@ -25,7 +30,7 @@ module.exports = async function (fastify) {
 
     fastify.put('/devices/update/:id', async (req, res) => {
         const { id } = req.params;
-        const body = req.body;
+        const body = req.body.data;
         const updatedDevice = await update(id, body);
         
         return {

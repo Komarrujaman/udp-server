@@ -87,43 +87,43 @@ export function UserForm() {
 
   return (
     <Card shadow={false} className="bg-gray p-4 md:p-8 w-full md:w-1/2">
-      <Typography variant="h4" color="blue-gray" className="text-center">
+      <Typography variant="h4" className="text-center text-gray-300">
        Add New User
       </Typography>
-      <Typography color="gray" className="mt-1 font-normal text-center">
+      <Typography className="mt-1 font-normal text-center text-gray-300">
         Nice to meet you! Enter your details to register.
       </Typography>
       <form className="mt-8 mb-2 w-full" onSubmit={postData}>
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="text-gray-300 -mb-3">
             Your Name
           </Typography>
           <Input
             size="lg"
             name="username"
             placeholder="name@mail.com"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-gray-300"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
             value={newUserData.username}
             onChange={(e) => setNewUserData({ ...newUserData, username: e.target.value })}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="text-gray-300 -mb-3">
             Your Email
           </Typography>
           <Input
             size="lg"
             name="email"
             placeholder="name@mail.com"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-gray-300"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
             value={newUserData.email}
             onChange={(e) => setNewUserData({ ...newUserData, email: e.target.value })}
           />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="text-gray-300 -mb-3">
             Password
           </Typography>
           <Input
@@ -131,7 +131,7 @@ export function UserForm() {
             size="lg"
             name="password"
             placeholder="********"
-            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+            className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-gray-300"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
@@ -140,7 +140,7 @@ export function UserForm() {
           />
 
           
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography variant="h6" className="text-gray-300 -mb-3">
             Role
           </Typography>
           <Select
@@ -150,7 +150,7 @@ export function UserForm() {
             name="role"
             value={newUserData.role} // Bind the select to the state
             onChange={handleChange} // Call handleChange on selection
-            className="mb-4"
+            className="mb-4 text-gray-300"
           >
         <Option value="admin">Admin</Option>
         <Option value="user">User</Option>
@@ -165,7 +165,7 @@ export function UserForm() {
           Failed : {responseMessage}
         </Alert> */}
         
-        <Button className="mt-6" fullWidth type="submit">
+        <Button className="mt-6 bg-gray-500" fullWidth type="submit">
           Add New User
         </Button>
       </form>

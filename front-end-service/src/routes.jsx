@@ -37,14 +37,14 @@ export const routes = [
       {
         icon: <ServerIcon {...icon} />,
         name: "Edit Device",
-        path: "/home/edit-device/:serial_number",
+        path: "/home/edit-device/:id",
         element: <EditTask />,
         style: 'hidden',
       },
       {
         icon: <ServerIcon {...icon} />,
         name: "Edit Device",
-        path: "/devicelist/edit-device/:serial_number",
+        path: "/devicelist/edit-device/:id",
         element: <EditTask />,
         style: 'hidden',
       },
