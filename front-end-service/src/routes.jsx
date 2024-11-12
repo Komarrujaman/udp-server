@@ -8,7 +8,7 @@ import {
   UserGroupIcon,
   ServerIcon
 } from "@heroicons/react/24/solid";
-import { Home, AddTask, Tables, AddUser, Notifications } from "@/pages/dashboard";
+import { Home, AddTask, Tables, AddUser } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import { element } from "prop-types";
 import EditTask from "./widgets/cards/editTask";
@@ -60,13 +60,13 @@ export const routes = [
         path: "/adduser",
         element: <AddUser />,
       },
-      {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
-        style: 'hidden',
-      },
+      // {
+      //   icon: <InformationCircleIcon {...icon} />,
+      //   name: "notifications",
+      //   path: "/notifications",
+      //   element: <Notifications />,
+      //   style: 'hidden',
+      // },
     ],
   },
   {

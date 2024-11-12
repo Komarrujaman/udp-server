@@ -34,7 +34,7 @@ export const UserApi = async () => {
   const baseURL = Server.baseURL;
   const basePort = Server.basePort
   try {
-    const response = await axios.get(`http://${baseURL}:${basePort}/getAllUsers`);
+    const response = await axios.get(`http://${baseURL}:${basePort}/users`);
     return response.data.data;
   } catch (error) {
     console.error('Error fetching data:', error);

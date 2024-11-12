@@ -9,10 +9,30 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 export function Dashboard() {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavType } = controller;
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    checkTokenValidity();
+  }, []);
+
+  const checkTokenValidity = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token tidak ditemukan");
+      }
+
+    } catch (error) {
+      console.error("Token tidak valid, arahkan ke login.");
+      navigate("/auth/sign-in");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-main">

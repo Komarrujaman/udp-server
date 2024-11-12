@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Typography,
-  Card,
-  CardHeader,
-  CardBody,
-  IconButton,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Avatar,
-  Tooltip,
-  Chip,
-  Progress,
 } from "@material-tailwind/react";
 import {
   EllipsisVerticalIcon,
@@ -36,7 +24,6 @@ import {
 import { ArrowDownCircleIcon, ArrowDownIcon, ArrowUpOnSquareStackIcon, CheckCircleIcon, ClockIcon, CloudArrowDownIcon, } from "@heroicons/react/24/solid";
 import { DeviceApi } from "@/data";
 import ListTask from "./listTask";
-import ListUser from "@/widgets/cards/listUser";
 
 export function Home() {
   const [data, setData] = React.useState([]);
@@ -56,9 +43,8 @@ export function Home() {
       setLoading(false);
       setTotalDevice(result.length);
     })
-
   }, []);
-  
+
   return (
     <div className="mt-12">
       <div className="mb-8 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">

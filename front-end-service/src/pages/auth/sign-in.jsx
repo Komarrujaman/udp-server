@@ -34,6 +34,7 @@ export function SignIn() {
 
       const result = await response.json();
       if (response.ok) {
+        console.log(result.token);
         // Save token in localStorage or sessionStorage
         localStorage.setItem('token', result.token);
         setRedAlert(false);

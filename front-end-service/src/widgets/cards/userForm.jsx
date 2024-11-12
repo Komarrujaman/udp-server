@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function UserForm() {
   const baseUrl = Server.baseURL;
   const baseport = Server.basePort;
-  const addUserPath = '/postUserById';
+  const addUserPath = '/users/create';
   const token = localStorage.getItem('token');
   const [responseMessage, setResponseMessage] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -40,6 +40,7 @@ export function UserForm() {
       ...prevData,
       role: value, // Set the role directly
     }));
+    console.log(newUserData);
   }
 
   const postData = async (e) => {
@@ -101,7 +102,7 @@ export function UserForm() {
           <Input
             size="lg"
             name="username"
-            placeholder="name@mail.com"
+            placeholder="your name"
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-gray-300"
             labelProps={{
               className: "before:content-none after:content-none",

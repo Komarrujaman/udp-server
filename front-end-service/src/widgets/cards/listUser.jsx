@@ -8,7 +8,7 @@ const ListUser = ({size}) => {
   const [listUsers, setListUsers] = useState([]);
   const baseURL = Server.baseURL;
   const basePort = Server.basePort;
-  const deleteUserPath = "/deleteUser";
+  const deleteUserPath = "/users/delete";
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -19,26 +19,25 @@ const ListUser = ({size}) => {
   }, []);
 
   // Function to handle deleting a user
-  const deleteUser = async (username) => {
+  const deleteUser = async (id, username) => {
     const confirmLogout = window.confirm("Are you sure want to Delete this User?");
 
     if (confirmLogout) {
       try {
-        const response = await fetch(`http://${baseURL}:${basePort}${deleteUserPath}/${username}`, {
+        const response = await fetch(`http://${baseURL}:${basePort}${deleteUserPath}/${id}`, {
           method: 'DELETE',
           Authorization: `Bearer ${token}`,
         });
   
         if (response.ok) {
           // If successful, remove user from the state
-          setListUsers(listUsers.filter(user => user.username !== username));
-          toast.success(`User ${username} deleted successfully!`);
+          setListUsers(listUsers.filter(user => user.id !== id));
+          alert(`User with ${username} deleted successfully!`);
         } else {
-          toast.error(`Failed to delete user: ${username}`); 
+          alert(`Failed to delete user: ${username}`); 
         }
       } catch (error) {
         console.error('Error deleting user:', error);
-        toast.error('Error deleting user.');
       }
     }
   };
@@ -57,7 +56,7 @@ const ListUser = ({size}) => {
             key={props.username}
             {...props}
             action={
-              <Button color='white' variant="text" size="sm" onClick={() => deleteUser(props.username)}>
+              <Button color='white' variant="text" size="sm" onClick={() => deleteUser( props.id, props.username,)}>
                 Delete
               </Button>
             }

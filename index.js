@@ -1,15 +1,20 @@
 const dgram = require('dgram')
 const path = require('path')
 const AutoLoad = require('@fastify/autoload')
+const fastifyStatic = require('@fastify/static');
 require('dotenv').config()
 
 const fastify = require('fastify')({
     logger:true
 })
 
-// Tambahkan CORS
 fastify.register(require('@fastify/cors'), {
     origin: '*', // Mengizinkan semua asal (origin)
+});
+
+fastify.register(fastifyStatic, {
+    root: path.join(__dirname, 'client', 'build'), // pointing to React build output
+    prefix: '/', // optional: default '/'
 });
 
 const UDP_HOST = process.env.UDP_HOST;
